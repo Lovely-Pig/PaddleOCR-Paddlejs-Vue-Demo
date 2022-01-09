@@ -22,10 +22,18 @@ export default {
   name: 'Detect',
   data () {
     return {
-      img: ''
+      img: '',
+      loadSuccess: false
     }
   },
   async mounted () {
+    this.timer = setInterval(() => {
+      this.$notify({
+        title: '注意',
+        message: '若长时间未加载成功可以手动刷新页面',
+        type: 'warning'
+      })
+    }, 6000)
     console.log('loading...')
     const loading = this.$loading({
       lock: true,
@@ -33,10 +41,19 @@ export default {
       spinner: 'el-icon-loading',
       background: 'rgba(255, 255, 255, 0.95)'
     })
-    // 模型初始化
-    await ocr.load()
-    loading.close()
-    console.log('loading OK')
+    try {
+      // 模型初始化
+      await ocr.load()
+      this.loadSuccess = true
+      loading.close()
+      clearInterval(this.timer)
+      console.log('loading OK')
+    } catch (err) {
+      console.log('loading err')
+    }
+  },
+  beforeDestroy () {
+    clearInterval(this.timer)
   },
   methods: {
     async detect () {

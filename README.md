@@ -2,7 +2,7 @@
 
 > 使用 Paddle.js 和 Vue 部署 PaddleOCR 应用
 
-体验地址：<http://39.106.32.208:8888>
+体验地址：<http://39.106.32.208>
 
 ## 介绍
 
@@ -26,12 +26,23 @@
 
    > Paddle.js 是百度 PaddlePaddle 的 web 方向子项目，是一个运行在浏览器中的开源深度学习框架。
 
+3. Vue
+
+   官网
+
+   - <https://cn.vuejs.org>
+   - <https://github.com/vuejs/vue>
+
+   官方介绍
+
+   > Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.
+
 ## 开发步骤
 
 ### 1 创建 Vue 项目
 
 ```sh
-$ vue init webpack PaddleOCR-Paddlejs-Vue-Demo
+$ vue init webpack paddleocr-paddlejs-vue-demo
 ```
 
 ### 2 安装依赖
