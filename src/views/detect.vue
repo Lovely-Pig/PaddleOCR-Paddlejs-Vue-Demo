@@ -59,11 +59,14 @@ export default {
     async detect () {
       const imgElement = this.$refs.image
       const canvasOutput = this.$refs.canvas
+      // console.log('imgElement:', imgElement)
+      // console.log('canvasOutput:', canvasOutput)
       const res = await ocr.detect(imgElement)
       console.log('res:', res)
       drawBox(res, imgElement, canvasOutput)
     },
     handleChange (file) {
+      // console.log('file:', file)
       this.img = URL.createObjectURL(file.raw)
       setTimeout(() => {
         this.detect()

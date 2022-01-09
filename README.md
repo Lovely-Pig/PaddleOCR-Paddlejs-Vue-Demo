@@ -30,7 +30,7 @@
 
    官网
 
-   - <https://cn.vuejs.org>
+   - <http://vuejs.org>
    - <https://github.com/vuejs/vue>
 
    官方介绍
